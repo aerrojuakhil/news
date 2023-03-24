@@ -1,0 +1,32 @@
+{% extends 'layout.html'%}
+{% block content %}
+<h1 class="full-margin">Trending</h1>
+<div class="full-margin" id="display-boxes">
+    <div class="trend-left">
+        {% for i in range(10)%}
+        <h3>{{business["articles"][i].title}}</h3>
+        <br>
+        <img src={{business["articles"][i].urlToImage}} class="card-img-top" alt="...">
+        <p>{{business["articles"][i].content}}</p>
+        <a href={{business['articles'][i].url}}><button type="button" class="btn btn-primary">Read article</button></a>
+        {% endfor %}
+    </div>
+    <div class="trend-right">
+        <div class="row">
+            <div class="col">
+                {% for i in range(15) %}
+                <a href={{apple["articles"][i].url}}>
+                    <div class="card" style="margin-bottom: 10px;">
+                        <img src={{apple["articles"][i].urlToImage}} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{apple["articles"][i].title}}</h5>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

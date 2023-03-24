@@ -1,0 +1,107 @@
+{% extends 'layout.html'%}
+{% block content %}
+<div class="total">
+    <div class="home-main">
+        <div class="card mb-3 border-0">
+            <a href={{tech['articles'][0].url}}>
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{tech["articles"][0].title}}</h5>
+                            <p class="card-text">{{tech["articles"][0].description}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src={{tech["articles"][0].urlToImage}} class="img-fluid rounded">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for i in range(1,4)%}
+            <div class="col">
+                <div class="card">
+                    <a href={{tech['articles'][i].url}}>
+                        <img src={{tech["articles"][i].urlToImage}} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{tech["articles"][i].title}}</h5>
+                            <p class="card-text">{{tech["articles"][i].description}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="home-side">
+        {% for i in range(3)%}
+        <div class="col">
+            <div class="card border-0">
+                <a href={{business['articles'][i].url}}>
+                    <img src={{business["articles"][i].urlToImage}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">{{business["articles"][i].title}}</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="home-side">
+        {% for i in range(3)%}
+        <div class="col">
+            <div class="card border-0">
+                <a href={{wallstreet['articles'][i].url}}>
+                    <img src={{wallstreet["articles"][i].urlToImage}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">{{wallstreet["articles"][i].title}}</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="full-margin">
+    <hr>
+    <h3>Popular News</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for i in range(6)%}
+        <div class="col">
+            <div class="card">
+                <a href={{popular['articles'][i].url}}>
+                    <img src={{popular["articles"][i].urlToImage}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{popular["articles"][i].title}}</h5>
+                        <p class="card-text">{{popular["articles"][i].description}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="full-margin">
+    <hr>
+    <h3>Trending</h3>
+    <div id="trends">
+        <div class="trend-box">
+            {% for i in range(5) %}
+            <span>{{i+1}}</span>
+            <a href={{tesla['articles'][i].url}}>{{tesla["articles"][i].title}}</a>
+            <br>
+            {% endfor %}
+        </div>
+        <div class="trend-box">
+            {% for i in range(5,10) %}
+            <span>{{i+1}}</span>
+            <a href={{tesla['articles'][i].url}}>{{tesla["articles"][i].title}}</a>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="full-margin">
+    <hr>
+</div>
+{% endblock %}
